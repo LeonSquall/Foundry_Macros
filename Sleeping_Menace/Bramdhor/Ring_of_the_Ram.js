@@ -56,15 +56,15 @@ new Dialog({
         }
         if (await ramValue === "option2") {
           await weapon.update({"system.uses.value": usesCharges-1});
-          await weapon.update({"system.damage.parts.0": ["4d10", "force"]});
+          await weapon.update({"system.damage.parts": [["4d10", "force"]]});
           await weapon.use()
-          await weapon.update({"system.damage.parts.0": ["2d10", "force"]});
+          await weapon.update({"system.damage.parts": [["2d10", "force"]]});
         }
         if (await ramValue === "option3") {
           await weapon.update({"system.uses.value": usesCharges-2});
-          await weapon.update({"system.damage.parts.0": ["6d10", "force"]});
+          await weapon.update({"system.damage.parts": [["6d10", "force"]]});
           await weapon.use()
-          await weapon.update({"system.damage.parts.0": ["2d10", "force"]});
+          await weapon.update({"system.damage.parts": [["2d10", "force"]]});
         } 
       }
     },
