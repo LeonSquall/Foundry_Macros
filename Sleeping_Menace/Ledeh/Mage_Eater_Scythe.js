@@ -9,7 +9,7 @@ let hitDices = actor.system.attributes.hd;
 
 let displayValue;
 let optionsValue;
-console.log(weapon);
+
 if (hitDices > 1) {
   displayValue = "block";
   optionsValue = '';
@@ -90,27 +90,27 @@ new Dialog({
           await weapon.update({"system.consume.target": "smallest"});
           await weapon.update({"system.consume.amount": 2});
           if (await spell) {
-            await weapon.update({"system.formula": "2d10[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["2d10","necrotic"]]});
           } else {
-            await weapon.update({"system.formula": "2d6[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["2d6","necrotic"]]});
           }
         }
         if (await scytheValue === "option3") {
           await weapon.update({"system.consume.target": "smallest"});
           await weapon.update({"system.consume.amount": 3});
           if (await spell) {
-            await weapon.update({"system.formula": "3d10[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["3d10","necrotic"]]});
           } else {
-            await weapon.update({"system.formula": "3d6[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["3d6","necrotic"]]});
           }        
         }
         if (await scytheValue === "option4") {
           await weapon.update({"system.consume.target": "smallest"});
           await weapon.update({"system.consume.amount": 4});
           if (await spell) {
-            await weapon.update({"system.formula": "4d10[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["4d10","necrotic"]]});
           } else {
-            await weapon.update({"system.formula": "4d6[Necrotic]"});
+            await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["4d6","necrotic"]]});
           }        
         }        
         await weapon.use()
@@ -118,7 +118,7 @@ new Dialog({
           await actor.update({"flags.dnd5e.weaponCriticalThreshold": 20});
         }
         await weapon.update({"system.formula": ""});
-          await weapon.update({"system.consume.target": ""});
+          await weapon.update({"system.damage.parts": [["1d10+@mod+@item.attackBonus","slashing"],["0","necrotic"]]});
           await weapon.update({"system.consume.amount": 0});
       },
     },

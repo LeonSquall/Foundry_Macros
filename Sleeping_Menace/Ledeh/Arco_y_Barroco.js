@@ -69,7 +69,7 @@ new Dialog({
         if (await hoja) {
           await bardic.update({"system.uses.value": bardicUses - 1});
           await weapon.update({"system.attackBonus": "@abilities.cha.mod"});
-          await weapon.update({"system.damage.parts.0.0": "1d8 + @mod + @item.attackBonus"});          
+          await weapon.update({"system.damage.parts.0": ["1d8 + @mod + @item.attackBonus", "piercing"]});          
         }
         
         await weapon.use()
@@ -78,7 +78,7 @@ new Dialog({
         }
         if (await hoja) {
           await weapon.update({"system.attackBonus": ""});
-          await weapon.update({"system.damage.parts.0.0": "1d8 + @mod"});          
+          await weapon.update({"system.damage.parts.0": ["1d8 + @mod", "piercing"]});          
         }
       },
     },
